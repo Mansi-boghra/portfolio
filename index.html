@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mansi — Python &amp; Generative AI Engineer</title>
+  <meta name="description" content="Python & Generative AI engineer with 4+ years of experience building scalable backends, REST APIs, RAG pipelines, AI agents and chatbots with FastAPI, Django, LangChain and CrewAI." />
+  <meta name="keywords" content="Python Developer, AI Engineer, Generative AI, RAG, LangChain, CrewAI, FastAPI, Django, Backend Developer" />
+  <meta name="theme-color" content="#07080d" />
+
+  <!-- Social sharing preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Mansi — Python & Generative AI Engineer" />
+  <meta property="og:description" content="4+ years building scalable backends and production-ready GenAI: RAG pipelines, agents, chatbots and APIs." />
+
+  <link rel="icon" href="assets/favicon.svg?v=2" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script>
+    /* apply the saved theme before first paint (no flash); dark is the default */
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      var theme = 'dark';
+      try { if (localStorage.getItem('theme') === 'light') theme = 'light'; } catch (e) {}
+      root.setAttribute('data-theme', theme);
+      if (theme === 'light') document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f6f6fa');
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ============ SVG ICON SPRITE ============ -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-github" viewBox="0 0 16 16"><path fill="currentColor" stroke="none" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+      <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+      <symbol id="i-server" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01"/><path d="M6 18h.01"/></symbol>
+      <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/><path d="M19 3v4"/><path d="M21 5h-4"/></symbol>
+      <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+      <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol>
+      <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></symbol>
+      <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/><path d="M22 10v6"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></symbol>
+      <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h5"/></symbol>
+      <symbol id="i-bot" viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+    </defs>
+  </svg>
+
+  <!-- Background glow -->
+  <div class="bg-fx" aria-hidden="true"></div>
+
+  <!-- ============ NAVIGATION ============ -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#top" class="logo" aria-label="Mansi — home">
+        <span class="logo__mark">MB</span>
+        <span class="logo__text">Mansi Boghra<span class="accent"></span></span>
+      </a>
+
+      <nav class="nav__links" id="navLinks" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light theme" title="Switch to light theme">
+          <svg class="i i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+          <svg class="i i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        </button>
+        <!-- EDIT: put your resume PDF at assets/resume.pdf -->
+        <a href="assets/Mansi's Cv.pdf" class="btn btn--ghost btn--sm" download aria-label="Download resume">
+          <svg class="i"><use href="#i-download"/></svg> <span class="btn__label">Resume</span>
+        </a>
+        <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <div class="badge reveal"><span class="pulse"></span>Open to new opportunities</div>
+
+          <p class="hero__hello reveal" style="--d:.05s">Hi, I'm <strong>Mansi</strong> - Python &amp; AI Engineer</p>
+
+          <h1 class="hero__title reveal" style="--d:.1s">
+            I build <span class="gradient-text">intelligent backends</span> that scale.
+          </h1>
+
+          <p class="hero__typed reveal" style="--d:.15s" aria-live="polite">
+            <span class="hero__typed-label">Specialised in</span>
+            <span class="typed" id="typed">RAG Pipelines</span><span class="caret" aria-hidden="true"></span>
+          </p>
+
+          <p class="hero__lead reveal" style="--d:.2s">
+            4+ years designing scalable backend systems, REST APIs and production-ready
+            Generative AI — RAG pipelines, agents and chatbots — with
+            <strong>FastAPI</strong>, <strong>Django</strong>, <strong>LangChain</strong> and <strong>CrewAI</strong>.
+          </p>
+
+          <div class="hero__cta reveal" style="--d:.25s">
+            <a href="#projects" class="btn btn--primary">
+              View my work <svg class="i"><use href="#i-arrow"/></svg>
+            </a>
+            <a href="#contact" class="btn btn--ghost">Let's talk</a>
+          </div>
+
+          <!-- EDIT: replace the GitHub / LinkedIn / email links with your own -->
+          <div class="hero__socials reveal" style="--d:.3s">
+            <a href="https://github.com/your-username" target="_blank" rel="noopener" aria-label="GitHub"><svg class="i"><use href="#i-github"/></svg></a>
+            <a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="i"><use href="#i-linkedin"/></svg></a>
+            <a href="mailto:your.email@example.com" aria-label="Email"><svg class="i"><use href="#i-mail"/></svg></a>
+            <span class="hero__socials-line"></span>
+            <span class="hero__location"><svg class="i"><use href="#i-pin"/></svg> India</span>
+          </div>
+        </div>
+
+        <!-- Code card -->
+        <div class="hero__visual reveal" style="--d:.2s" aria-hidden="true">
+          <div class="code-window">
+            <div class="code-window__bar">
+              <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+              <span class="code-window__file">mansi.py</span>
+            </div>
+<pre class="code"><code><span class="ln" style="--i:1"><span class="k">from</span> engineer <span class="k">import</span> <span class="c">Python</span>, <span class="c">GenAI</span></span>
+<span class="ln" style="--i:2"> </span>
+<span class="ln" style="--i:3"><span class="k">class</span> <span class="c">Mansi</span>(<span class="c">Python</span>, <span class="c">GenAI</span>):</span>
+<span class="ln" style="--i:4">    role       <span class="p">=</span> <span class="s">"Backend &amp; AI Engineer"</span></span>
+<span class="ln" style="--i:5">    experience <span class="p">=</span> <span class="s">"4+ years"</span></span>
+<span class="ln" style="--i:6">    backend    <span class="p">=</span> [<span class="s">"FastAPI"</span>, <span class="s">"Django"</span>, <span class="s">"DRF"</span>]</span>
+<span class="ln" style="--i:7">    ai_stack   <span class="p">=</span> [<span class="s">"RAG"</span>, <span class="s">"GenAI"</span>, <span class="s">"Agentic AI"</span>]</span>
+<span class="ln" style="--i:8">    cloud      <span class="p">=</span> [<span class="s">"AWS"</span>, <span class="s">"GCP"</span>, <span class="s">"DigitalOcean"</span>]</span>
+<span class="ln" style="--i:9"> </span>
+<span class="ln" style="--i:10">    <span class="k">async def</span> <span class="f">build</span>(<span class="v">self</span>, idea: <span class="c">str</span>):</span>
+<span class="ln" style="--i:11">        api <span class="p">=</span> <span class="k">await</span> <span class="v">self</span>.<span class="f">design</span>(idea)</span>
+<span class="ln" style="--i:12">        <span class="k">return</span> api.<span class="f">with_ai</span>().<span class="f">ship</span>()</span></code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="container stats">
+        <div class="stat reveal">
+          <span class="stat__num"><span data-count="4">4</span>+</span>
+          <span class="stat__label">Years of experience</span>
+        </div>
+        <div class="stat reveal" style="--d:.08s">
+          <span class="stat__num"><span data-count="19">19</span>+</span>
+          <span class="stat__label">Production projects shipped</span>
+        </div>
+        <div class="stat reveal" style="--d:.16s">
+          <span class="stat__num"><span data-count="8">8</span>+</span>
+          <span class="stat__label">Industry domains</span>
+        </div>
+        <div class="stat reveal" style="--d:.24s">
+          <span class="stat__num"><span data-count="3">3</span></span>
+          <span class="stat__label">Companies</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <span class="eyebrow">01 — About me</span>
+          <h2>Backend engineer at heart.<br /><span class="gradient-text">AI builder</span> by passion.</h2>
+        </div>
+
+        <div class="about">
+        <div class="about__text">
+          <p class="reveal">
+            I'm a Python developer with <strong>4+ years of hands-on experience</strong> building scalable
+            backend systems, RESTful APIs and database-driven applications — and, more recently,
+            production-grade <strong>Generative AI</strong> products.
+          </p>
+          <p class="reveal">
+            My work spans the full backend lifecycle: modelling data in PostgreSQL and MongoDB, designing
+            clean APIs with Django REST Framework and FastAPI, running background jobs with Celery &amp; Redis,
+            pushing real-time updates over WebSockets, and deploying to AWS and DigitalOcean behind Nginx and Gunicorn.
+          </p>
+          <p class="reveal">
+            On the AI side, I turn LLMs into reliable product features — <strong>RAG pipelines, agents and chatbots</strong>
+            built with LangChain, CrewAI, OpenAI and Google Gemini — for use cases ranging from legal research and
+            document intelligence to personalised meal and workout planning.
+          </p>
+          <p class="reveal">
+            I work closely with cross-functional teams, care about clean architecture and performance, and
+            consistently ship high-quality solutions on deadline.
+          </p>
+        </div>
+
+        <aside class="card facts reveal" style="--d:.1s" aria-label="At a glance">
+          <p class="facts__title">At a glance</p>
+          <dl class="facts__list">
+            <div><dt>Role</dt><dd>Python &amp; AI Engineer</dd></div>
+            <div><dt>Experience</dt><dd>4+ years</dd></div>
+            <div><dt>Currently at</dt><dd>ITCode Infotech</dd></div>
+            <div><dt>Focus</dt><dd>AI &amp; Backend</dd></div>
+            <div><dt>Core stack</dt><dd>Python · FastAPI · Django</dd></div>
+            <div><dt>Education</dt><dd>MCA, Jain University</dd></div>
+            <div><dt>Location</dt><dd>India</dd></div>
+            <div><dt>Status</dt><dd class="facts__status"><span class="pulse"></span>Open to opportunities</dd></div>
+          </dl>
+          <a href="#services" class="facts__link">See what I can do for you <svg class="i"><use href="#i-arrow"/></svg></a>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <span class="eyebrow">02 — Services</span>
+          <h2>What I can do for you</h2>
+          <p class="section-sub">From an AI feature in your existing app to a complete backend built from scratch — designed, built and deployed to production.</p>
+        </div>
+
+        <div class="offers">
+          <!-- 01 Generative AI -->
+          <article class="card offer reveal">
+            <div class="offer__top">
+              <span class="icon-box"><svg class="i"><use href="#i-sparkles"/></svg></span>
+              <span class="offer__num">01</span>
+            </div>
+            <h3>Generative AI Integration</h3>
+            <p class="offer__desc">Bring LLMs into your product as reliable, production-ready features — not just demos.</p>
+            <ul class="offer__list">
+              <li><svg class="i"><use href="#i-check"/></svg>Content generation, summarisation &amp; data extraction</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Prompt engineering &amp; few-shot tuning for accurate output</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Image &amp; video understanding with Google Gemini</li>
+            </ul>
+            <p class="offer__stack">OpenAI · Gemini · Vertex&nbsp;AI · Replicate</p>
+          </article>
+
+          <!-- 02 RAG -->
+          <article class="card offer reveal" style="--d:.08s">
+            <div class="offer__top">
+              <span class="icon-box icon-box--cyan"><svg class="i"><use href="#i-doc"/></svg></span>
+              <span class="offer__num">02</span>
+            </div>
+            <h3>RAG &amp; Document Intelligence</h3>
+            <p class="offer__desc">Let users chat with their documents and knowledge base, with answers grounded in your own data.</p>
+            <ul class="offer__list">
+              <li><svg class="i"><use href="#i-check"/></svg>Document ingestion, chunking &amp; semantic retrieval</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Agentic RAG assistants over uploaded files</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Document parsing with Google Document AI</li>
+            </ul>
+            <p class="offer__stack">LangChain · Agentic&nbsp;RAG · Document&nbsp;AI</p>
+          </article>
+
+          <!-- 03 Agents & chatbots -->
+          <article class="card offer reveal" style="--d:.16s">
+            <div class="offer__top">
+              <span class="icon-box icon-box--pink"><svg class="i"><use href="#i-bot"/></svg></span>
+              <span class="offer__num">03</span>
+            </div>
+            <h3>AI Agents &amp; Chatbots</h3>
+            <p class="offer__desc">Conversational assistants and multi-agent workflows that automate real business tasks.</p>
+            <ul class="offer__list">
+              <li><svg class="i"><use href="#i-check"/></svg>Multi-agent workflows with CrewAI &amp; LangChain</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Domain assistants — legal research, health, support</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Chatbots served through FastAPI into your app</li>
+            </ul>
+            <p class="offer__stack">CrewAI · LangChain · FastAPI</p>
+          </article>
+
+          <!-- 04 Backend & APIs -->
+          <article class="card offer reveal">
+            <div class="offer__top">
+              <span class="icon-box icon-box--blue"><svg class="i"><use href="#i-server"/></svg></span>
+              <span class="offer__num">04</span>
+            </div>
+            <h3>Backend &amp; API Development</h3>
+            <p class="offer__desc">Secure, scalable backends for web and mobile apps — from database schema to clean REST APIs.</p>
+            <ul class="offer__list">
+              <li><svg class="i"><use href="#i-check"/></svg>REST APIs with Django REST Framework &amp; FastAPI</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Authentication, OAuth &amp; role-based access control</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Admin panels, analytics &amp; multi-role workflows</li>
+            </ul>
+            <p class="offer__stack">Python · Django · DRF · FastAPI · PostgreSQL</p>
+          </article>
+
+          <!-- 05 Real-time & integrations -->
+          <article class="card offer reveal" style="--d:.08s">
+            <div class="offer__top">
+              <span class="icon-box icon-box--amber"><svg class="i"><use href="#i-zap"/></svg></span>
+              <span class="offer__num">05</span>
+            </div>
+            <h3>Real-time Features &amp; Integrations</h3>
+            <p class="offer__desc">Live, event-driven experiences and third-party services wired cleanly into your platform.</p>
+            <ul class="offer__list">
+              <li><svg class="i"><use href="#i-check"/></svg>WebSocket chat &amp; push notifications (FCM, OneSignal)</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Background jobs with Celery &amp; Redis</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Stripe, payment gateways, wallets &amp; external APIs</li>
+            </ul>
+            <p class="offer__stack">WebSockets · Celery · Redis · Stripe</p>
+          </article>
+
+          <!-- 06 Deployment & performance -->
+          <article class="card offer reveal" style="--d:.16s">
+            <div class="offer__top">
+              <span class="icon-box icon-box--green"><svg class="i"><use href="#i-cloud"/></svg></span>
+              <span class="offer__num">06</span>
+            </div>
+            <h3>Deployment &amp; Performance</h3>
+            <p class="offer__desc">Taking your app to production, and keeping it fast and stable as it grows.</p>
+            <ul class="offer__list">
+              <li><svg class="i"><use href="#i-check"/></svg>Deployment on AWS, DigitalOcean &amp; Linode</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Query optimisation &amp; Elasticsearch-powered search</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Scaling, maintenance &amp; upgrades of existing apps</li>
+            </ul>
+            <p class="offer__stack">AWS · Nginx · Gunicorn · Elasticsearch</p>
+          </article>
+        </div>
+
+        <!-- EDIT: change the availability line to match how you want to work -->
+        <div class="offer-cta reveal">
+          <div>
+            <p class="offer-cta__title">Have a project in mind?</p>
+            <p class="offer-cta__text">Available for freelance projects, contract work and full-time roles.</p>
+          </div>
+          <a href="#contact" class="btn btn--primary">Start a conversation <svg class="i"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <span class="eyebrow">03 — Skills</span>
+          <h2>Technical expertise</h2>
+          <p class="section-sub">The stack I use to take products from database schema to production deployment.</p>
+        </div>
+
+        <div class="skills">
+          <article class="card skill skill--wide reveal">
+            <div class="skill__head">
+              <span class="icon-box icon-box--cyan"><svg class="i"><use href="#i-sparkles"/></svg></span>
+              <div>
+                <h3>Generative AI &amp; LLMs</h3>
+                <span class="skill__tag">Primary focus</span>
+              </div>
+            </div>
+            <p class="skill__desc">Designing and shipping LLM features end-to-end — retrieval pipelines, agents and chatbots — on OpenAI, Google Gemini and Vertex AI.</p>
+            <ul class="chips">
+              <li class="chip chip--hl">LangChain</li><li class="chip chip--hl">CrewAI</li><li class="chip chip--hl">RAG Pipelines</li><li class="chip">Agentic RAG</li><li class="chip">OpenAI API</li><li class="chip">Google Gemini</li><li class="chip">Vertex AI</li><li class="chip">Replicate</li><li class="chip">Google Document AI</li><li class="chip">Few-shot Prompting</li>
+            </ul>
+          </article>
+
+          <article class="card skill reveal" style="--d:.08s">
+            <div class="skill__head">
+              <span class="icon-box"><svg class="i"><use href="#i-code"/></svg></span>
+              <div>
+                <h3>Backend Development</h3>
+                <span class="skill__tag">4+ years</span>
+              </div>
+            </div>
+            <p class="skill__desc">Production web and mobile backends with clean, well-structured REST APIs.</p>
+            <ul class="chips">
+              <li class="chip chip--hl">Python</li><li class="chip chip--hl">Django</li><li class="chip">Django REST Framework</li><li class="chip chip--hl">FastAPI</li>
+            </ul>
+          </article>
+
+          <article class="card skill reveal">
+            <div class="skill__head">
+              <span class="icon-box icon-box--green"><svg class="i"><use href="#i-database"/></svg></span>
+              <h3>Databases &amp; Search</h3>
+            </div>
+            <p class="skill__desc">Schema design, ORM query optimisation and fast full-text search.</p>
+            <ul class="chips">
+              <li class="chip chip--hl">PostgreSQL</li><li class="chip">MongoDB</li><li class="chip">SQLite</li><li class="chip">Supabase</li><li class="chip">Elasticsearch</li><li class="chip">Database Triggers</li>
+            </ul>
+          </article>
+
+          <article class="card skill reveal" style="--d:.08s">
+            <div class="skill__head">
+              <span class="icon-box icon-box--amber"><svg class="i"><use href="#i-zap"/></svg></span>
+              <h3>Async &amp; Real-time</h3>
+            </div>
+            <p class="skill__desc">Background processing, live chat and event-driven push notifications.</p>
+            <ul class="chips">
+              <li class="chip chip--hl">Celery</li><li class="chip">Redis</li><li class="chip">WebSockets</li><li class="chip">Django Signals</li><li class="chip">FCM</li><li class="chip">OneSignal</li>
+            </ul>
+          </article>
+
+          <article class="card skill reveal" style="--d:.16s">
+            <div class="skill__head">
+              <span class="icon-box icon-box--pink"><svg class="i"><use href="#i-shield"/></svg></span>
+              <h3>APIs &amp; Security</h3>
+            </div>
+            <p class="skill__desc">Secure, role-based APIs with OAuth and third-party payment integrations.</p>
+            <ul class="chips">
+              <li class="chip chip--hl">REST APIs</li><li class="chip">OAuth</li><li class="chip">Authentication &amp; Authorization</li><li class="chip">Role-based Access</li><li class="chip">Stripe</li><li class="chip">Payment Gateways</li>
+            </ul>
+          </article>
+
+          <article class="card skill reveal">
+            <div class="skill__head">
+              <span class="icon-box icon-box--blue"><svg class="i"><use href="#i-cloud"/></svg></span>
+              <h3>Cloud &amp; DevOps</h3>
+            </div>
+            <p class="skill__desc">Deploying and serving production apps across multiple cloud providers.</p>
+            <ul class="chips">
+              <li class="chip chip--hl">AWS (EC2, S3)</li><li class="chip">DigitalOcean</li><li class="chip">Linode</li><li class="chip">Nginx</li><li class="chip">Apache</li><li class="chip">Gunicorn</li><li class="chip">PM2</li>
+            </ul>
+          </article>
+
+          <article class="card skill skill--wide reveal" style="--d:.08s">
+            <div class="skill__head">
+              <span class="icon-box"><svg class="i"><use href="#i-layers"/></svg></span>
+              <h3>Engineering Strengths</h3>
+            </div>
+            <p class="skill__desc">How I approach delivery — beyond the tools.</p>
+            <ul class="chips">
+              <li class="chip">Scalable Architecture</li><li class="chip">Query &amp; Performance Optimisation</li><li class="chip">Third-party Integrations</li><li class="chip">Multi-role Systems</li><li class="chip">Cross-functional Collaboration</li><li class="chip">On-time Delivery</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <span class="eyebrow">04 — Experience</span>
+          <h2>Where I've built things</h2>
+        </div>
+
+        <ol class="timeline">
+          <!-- EDIT: adjust job titles if yours differ -->
+          <li class="tl-item reveal">
+            <span class="tl-dot tl-dot--live"></span>
+            <article class="card job">
+              <header class="job__head">
+                <div>
+                  <h3 class="job__company">ITCode Infotech <span class="pill pill--live">Current</span></h3>
+                  <p class="job__role">Python AI Engineer</p>
+                </div>
+                <span class="job__date">Jun 2026 — Present</span>
+              </header>
+              <ul class="job__list">
+                <li>Building scalable backend systems and AI-driven applications using Python, FastAPI, Django and Generative AI.</li>
+                <li>Developing production-ready AI solutions including <strong>RAG pipelines, agents and chatbots</strong>.</li>
+              </ul>
+              <ul class="chips chips--sm">
+                <li class="chip">FastAPI</li><li class="chip">Django</li><li class="chip">RAG</li><li class="chip">AI Agents</li><li class="chip">Chatbots</li>
+              </ul>
+            </article>
+          </li>
+
+          <li class="tl-item reveal">
+            <span class="tl-dot"></span>
+            <article class="card job">
+              <header class="job__head">
+                <div>
+                  <h3 class="job__company">Kmphitech LLP</h3>
+                  <p class="job__role">Python AI Developer</p>
+                </div>
+                <span class="job__date">Jul 2025 — May 2026</span>
+              </header>
+              <ul class="job__list">
+                <li>Built backend systems and APIs with FastAPI and Django for AI-driven applications.</li>
+                <li>Developed Generative AI solutions including <strong>RAG pipelines, chatbots, legal research tools, and meal &amp; workout planners</strong>.</li>
+                <li>Worked with modern AI frameworks and LLM platforms to build scalable, production-ready features.</li>
+                <li>Collaborated with cross-functional teams to deliver solutions aligned with business and client needs.</li>
+              </ul>
+              <p class="job__delivered">Projects delivered</p>
+              <ul class="chips chips--sm">
+                <li class="chip">Runsheet.AI</li><li class="chip">OMGLOL</li><li class="chip">Healthy-Hustle</li><li class="chip">Imposter</li><li class="chip">Pocket-Handyman</li><li class="chip">PremiumCrap</li><li class="chip">HandyMatch</li><li class="chip">Batchly</li><li class="chip">Nomly</li>
+              </ul>
+            </article>
+          </li>
+
+          <li class="tl-item reveal">
+            <span class="tl-dot"></span>
+            <article class="card job">
+              <header class="job__head">
+                <div>
+                  <h3 class="job__company">Grewon Technologies Pvt. Ltd</h3>
+                  <p class="job__role">Senior Developer - Python / Django</p>
+                </div>
+                <span class="job__date">Sep 2022 — May 2025</span>
+              </header>
+              <ul class="job__list">
+                <li>Designed and developed scalable Django web &amp; mobile backends with RESTful APIs; optimised database queries and application performance with the Django ORM.</li>
+                <li>Built solutions across <strong>e-commerce, dating, gaming, HRMS and real-time stock management</strong> domains.</li>
+                <li>Integrated payment gateways, Celery with Redis for background tasks, and WebSockets for real-time chat and notifications.</li>
+              </ul>
+              <p class="job__delivered">Projects delivered</p>
+              <ul class="chips chips--sm">
+                <li class="chip">HRMS</li><li class="chip">Cicero</li><li class="chip">Dottore</li><li class="chip">PBSM</li><li class="chip">Stockel</li><li class="chip">Sumoti</li><li class="chip">Gex Chart</li><li class="chip">CallerID</li><li class="chip">LovigNite</li><li class="chip">YollaDating</li>
+              </ul>
+            </article>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <span class="eyebrow">05 — Featured work</span>
+          <h2>Featured Projects</h2>
+          <p class="section-sub">A selection of the production systems I've designed and built.</p>
+        </div>
+
+        <div class="project-list">
+          <!-- 01 Runsheet.AI -->
+          <article class="card project reveal">
+            <header class="project__head">
+              <span class="project__num">01</span>
+              <span class="project__type project__type--ai">Generative AI</span>
+              <h3>Runsheet.AI</h3>
+              <p class="project__kicker">AI document intelligence platform</p>
+            </header>
+            <div class="project__main">
+              <p class="project__desc">
+                An AI-powered document management platform built with FastAPI. Users create projects, upload documents
+                and chat with an <strong>agentic RAG</strong> assistant that answers questions straight from their files.
+              </p>
+              <ul class="project__points">
+                <li><svg class="i"><use href="#i-check"/></svg>Agentic RAG chatbot that retrieves answers from uploaded documents</li>
+                <li><svg class="i"><use href="#i-check"/></svg>Project-based workspaces for organising and managing documents</li>
+                <li><svg class="i"><use href="#i-check"/></svg>Chart visualisations that summarise documents and surface key insights</li>
+              </ul>
+              <ul class="chips chips--sm">
+                <li class="chip">FastAPI</li><li class="chip">Agentic RAG</li><li class="chip">LLMs</li><li class="chip">Data Visualisation</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 02 OMGLOL -->
+          <article class="card project reveal">
+            <header class="project__head">
+              <span class="project__num">02</span>
+              <span class="project__type project__type--ai">Generative AI</span>
+              <h3>OMGLOL</h3>
+              <p class="project__kicker">AI dog colouring book</p>
+            </header>
+            <div class="project__main">
+              <p class="project__desc">
+                A scalable Django platform where users upload their dog's details and receive <strong>100 unique
+                AI-generated outline-art images</strong> created with Google Gemini after payment.
+              </p>
+              <ul class="project__points">
+                <li><svg class="i"><use href="#i-check"/></svg>Personalised digital books built from the generated artwork</li>
+                <li><svg class="i"><use href="#i-check"/></svg>Stripe payments for purchasing additional image generations</li>
+                <li><svg class="i"><use href="#i-check"/></svg>Printed copies ordered through Lulu print-on-demand integration</li>
+              </ul>
+              <ul class="chips chips--sm">
+                <li class="chip">Django</li><li class="chip">Google Gemini</li><li class="chip">Stripe</li><li class="chip">Lulu Print API</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 03 Healthy-Hustle -->
+          <article class="card project reveal">
+            <header class="project__head">
+              <span class="project__num">03</span>
+              <span class="project__type project__type--ai">Generative AI</span>
+              <h3>Healthy-Hustle</h3>
+              <p class="project__kicker">AI health &amp; fitness planner</p>
+            </header>
+            <div class="project__main">
+              <p class="project__desc">
+                Built the AI layer with FastAPI — a GenAI engine that generates <strong>personalised meal and workout
+                plans</strong>, plus a conversational assistant for health and fitness questions.
+              </p>
+              <ul class="project__points">
+                <li><svg class="i"><use href="#i-check"/></svg>Few-shot prompting to improve recommendation accuracy</li>
+                <li><svg class="i"><use href="#i-check"/></svg>Fine-tuned LLM responses for personalised, accurate plans</li>
+                <li><svg class="i"><use href="#i-check"/></svg>Conversational chatbot for fitness guidance and user queries</li>
+              </ul>
+              <ul class="chips chips--sm">
+                <li class="chip">FastAPI</li><li class="chip">LLMs</li><li class="chip">Few-shot Prompting</li><li class="chip">Chatbot</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 04 Handy-Match -->
+          <article class="card project reveal">
+            <header class="project__head">
+              <span class="project__num">04</span>
+              <span class="project__type project__type--ai">AI + Platform</span>
+              <h3>Handy-Match</h3>
+              <p class="project__kicker">Property maintenance management</p>
+            </header>
+            <div class="project__main">
+              <p class="project__desc">
+                A <strong>role-based</strong> task management system for Tenants, Managers and Handymen, with an admin panel
+                for property assignment, user management and analytics.
+              </p>
+              <ul class="project__points">
+                <li><svg class="i"><use href="#i-check"/></svg>Google Gemini <strong>issue detection</strong> from tenant image &amp; video uploads</li>
+                <li><svg class="i"><use href="#i-check"/></svg>Managers organise jobs into packages and manage work requests</li>
+                <li><svg class="i"><use href="#i-check"/></svg>Handymen request assigned tasks and execute work on approval</li>
+              </ul>
+              <ul class="chips chips--sm">
+                <li class="chip">Role-based Auth</li><li class="chip">Google Gemini</li><li class="chip">Media Uploads</li><li class="chip">Admin Analytics</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 05 Cicero -->
+          <article class="card project reveal">
+            <header class="project__head">
+              <span class="project__num">05</span>
+              <span class="project__type">Backend</span>
+              <h3>Cicero</h3>
+              <p class="project__kicker">Multi-role B2B e-commerce</p>
+            </header>
+            <div class="project__main">
+              <p class="project__desc">
+                An e-commerce platform connecting suppliers and clinics, with dedicated workflows for clinics,
+                suppliers and admins — improving product management, stock control and user experience.
+              </p>
+              <ul class="project__points">
+                <li><svg class="i"><use href="#i-check"/></svg>Bulk product upload via Excel and XML for suppliers</li>
+                <li><svg class="i"><use href="#i-check"/></svg><strong>Elasticsearch</strong> for fast, accurate search across large inventories</li>
+                <li><svg class="i"><use href="#i-check"/></svg>Real-time notifications for order updates, receipts and status changes</li>
+              </ul>
+              <ul class="chips chips--sm">
+                <li class="chip">Django</li><li class="chip">DRF</li><li class="chip">Elasticsearch</li><li class="chip">Real-time Notifications</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 06 Stock Market -->
+          <article class="card project reveal">
+            <header class="project__head">
+              <span class="project__num">06</span>
+              <span class="project__type">Backend</span>
+              <h3>Stock Market Tracker</h3>
+              <p class="project__kicker">Market tracking &amp; notifications</p>
+            </header>
+            <div class="project__main">
+              <p class="project__desc">
+                Backend for a web and mobile app that fetches real <strong>stock market data</strong> from external APIs and
+                notifies investors as markets move.
+              </p>
+              <ul class="project__points">
+                <li><svg class="i"><use href="#i-check"/></svg>Profit &amp; loss calculation, including options (Open, Call, Put)</li>
+                <li><svg class="i"><use href="#i-check"/></svg>Flexible notifications triggered by market movements</li>
+                <li><svg class="i"><use href="#i-check"/></svg>Push delivery through Firebase Cloud Messaging</li>
+              </ul>
+              <ul class="chips chips--sm">
+                <li class="chip">Django</li><li class="chip">External APIs</li><li class="chip">FCM</li><li class="chip">Push Notifications</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 07 Yolla Dating -->
+          <article class="card project reveal">
+            <header class="project__head">
+              <span class="project__num">07</span>
+              <span class="project__type">Backend</span>
+              <h3>Yolla Dating</h3>
+              <p class="project__kicker">Dating application</p>
+            </header>
+            <div class="project__main">
+              <p class="project__desc">
+                Backend for a dating app with phone-based authentication, profile management and a
+                <strong>custom compatibility-matching algorithm</strong> for instant matches.
+              </p>
+              <ul class="project__points">
+                <li><svg class="i"><use href="#i-check"/></svg>Real-time notifications for matches, date requests and availability</li>
+                <li><svg class="i"><use href="#i-check"/></svg>Secure payments, wallets and refunds</li>
+                <li><svg class="i"><use href="#i-check"/></svg>APIs optimised for scalability and performance</li>
+              </ul>
+              <ul class="chips chips--sm">
+                <li class="chip">Django</li><li class="chip">Matching Algorithm</li><li class="chip">Payments &amp; Wallets</li><li class="chip">Real-time</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div class="more reveal">
+          <p class="more__title">Also shipped to production</p>
+          <ul class="chips">
+            <li class="chip">Imposter</li><li class="chip">Pocket-Handyman</li><li class="chip">PremiumCrap</li><li class="chip">Batchly</li><li class="chip">Nomly</li><li class="chip">HRMS</li><li class="chip">Dottore</li><li class="chip">PBSM</li><li class="chip">Stockel</li><li class="chip">Sumoti</li><li class="chip">Gex Chart</li><li class="chip">CallerID</li><li class="chip">LovigNite</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION ============ -->
+    <section class="section" id="education">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <span class="eyebrow">06 — Education</span>
+          <h2>Academic foundation</h2>
+        </div>
+        <div class="edu">
+          <article class="card edu__item reveal">
+            <span class="icon-box"><svg class="i"><use href="#i-cap"/></svg></span>
+            <div>
+              <span class="edu__years">2022 — 2024</span>
+              <h3>Master of Computer Applications</h3>
+              <p>Jain University</p>
+            </div>
+          </article>
+          <article class="card edu__item reveal" style="--d:.08s">
+            <span class="icon-box icon-box--cyan"><svg class="i"><use href="#i-cap"/></svg></span>
+            <div>
+              <span class="edu__years">2019 — 2022</span>
+              <h3>Bachelor of Computer Applications</h3>
+              <p>Shree Uttar Gujarat B.B.A &amp; B.C.A College</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <span class="eyebrow">07 — Contact</span>
+          <h2>Have an idea? <span class="gradient-text">Let's build it.</span></h2>
+          <p class="section-sub">
+            Whether it's a scalable backend, an AI-powered feature or a full GenAI product, I'd love to hear about it.
+          </p>
+        </div>
+
+        <div class="contact reveal">
+          <div class="contact__info">
+            <h3 class="contact__title">Reach me directly</h3>
+            <p class="contact__lead">Prefer email or LinkedIn? Pick whichever works best for you, or send a message using the form.</p>
+
+            <!-- EDIT: replace with your real contact details -->
+            <ul class="contact__list">
+              <li>
+                <a href="mailto:your.email@example.com">
+                  <span class="icon-box icon-box--sm"><svg class="i"><use href="#i-mail"/></svg></span>
+                  <span><small>Email</small>your.email@example.com</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener">
+                  <span class="icon-box icon-box--sm icon-box--blue"><svg class="i"><use href="#i-linkedin"/></svg></span>
+                  <span><small>LinkedIn</small>linkedin.com/in/your-profile</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/your-username" target="_blank" rel="noopener">
+                  <span class="icon-box icon-box--sm icon-box--green"><svg class="i"><use href="#i-github"/></svg></span>
+                  <span><small>GitHub</small>github.com/your-username</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <form class="contact__form" id="contactForm" data-email="your.email@example.com" novalidate>
+            <div class="field">
+              <label for="cf-name">Your name</label>
+              <input id="cf-name" name="name" type="text" placeholder="Jane Doe" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="cf-email">Email</label>
+              <input id="cf-email" name="email" type="email" placeholder="jane@company.com" autocomplete="email" required />
+            </div>
+            <div class="field">
+              <label for="cf-msg">Project details</label>
+              <textarea id="cf-msg" name="message" rows="5" placeholder="Tell me about your project, timeline and goals…" required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--block">
+              Send message <svg class="i"><use href="#i-send"/></svg>
+            </button>
+            <p class="form-note" id="formNote" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="year">2026</span> Mansi Boghra · Python &amp; AI Engineer</p>
+      <a href="#top" class="footer__top">Back to top <svg class="i"><use href="#i-arrow-up-right"/></svg></a>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
