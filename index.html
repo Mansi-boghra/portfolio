@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mansi — Python &amp; Generative AI Engineer</title>
+  <title>Mansi - Python &amp; Generative AI Engineer</title>
   <meta name="description" content="Python & Generative AI engineer with 4+ years of experience building scalable backends, REST APIs, RAG pipelines, AI agents and chatbots with FastAPI, Django, LangChain and CrewAI." />
   <meta name="keywords" content="Python Developer, AI Engineer, Generative AI, RAG, LangChain, CrewAI, FastAPI, Django, Backend Developer" />
   <meta name="theme-color" content="#07080d" />
 
   <!-- Social sharing preview -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Mansi — Python & Generative AI Engineer" />
+  <meta property="og:title" content="Mansi - Python & Generative AI Engineer" />
   <meta property="og:description" content="4+ years building scalable backends and production-ready GenAI: RAG pipelines, agents, chatbots and APIs." />
 
   <link rel="icon" href="assets/favicon.svg?v=2" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/style.css?v=ui10" />
   <script>
     /* apply the saved theme before first paint (no flash); dark is the default */
     (function () {
@@ -63,10 +63,13 @@
   <!-- Background glow -->
   <div class="bg-fx" aria-hidden="true"></div>
 
+  <!-- Floating arrow agents -->
+  <canvas id="agentsCanvas" class="agents-canvas" aria-hidden="true"></canvas>
+
   <!-- ============ NAVIGATION ============ -->
   <header class="nav" id="nav">
     <div class="container nav__inner">
-      <a href="#top" class="logo" aria-label="Mansi — home">
+      <a href="#top" class="logo" aria-label="Mansi - home">
         <span class="logo__mark">MB</span>
         <span class="logo__text">Mansi Boghra<span class="accent"></span></span>
       </a>
@@ -78,7 +81,6 @@
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
       </nav>
 
       <div class="nav__actions">
@@ -86,9 +88,11 @@
           <svg class="i i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
           <svg class="i i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
         </button>
-        <!-- EDIT: put your resume PDF at assets/resume.pdf -->
         <a href="assets/Mansi's Cv.pdf" class="btn btn--ghost btn--sm" download aria-label="Download resume">
           <svg class="i"><use href="#i-download"/></svg> <span class="btn__label">Resume</span>
+        </a>
+        <a href="#contact" class="btn btn--primary btn--sm">
+          <svg class="i"><use href="#i-send"/></svg> <span class="btn__label">Let's talk</span>
         </a>
         <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
           <span></span><span></span>
@@ -117,7 +121,7 @@
 
           <p class="hero__lead reveal" style="--d:.2s">
             4+ years designing scalable backend systems, REST APIs and production-ready
-            Generative AI — RAG pipelines, agents and chatbots — with
+            Generative AI, RAG pipelines, agents and chatbots with
             <strong>FastAPI</strong>, <strong>Django</strong>, <strong>LangChain</strong> and <strong>CrewAI</strong>.
           </p>
 
@@ -125,14 +129,13 @@
             <a href="#projects" class="btn btn--primary">
               View my work <svg class="i"><use href="#i-arrow"/></svg>
             </a>
-            <a href="#contact" class="btn btn--ghost">Let's talk</a>
           </div>
 
           <!-- EDIT: replace the GitHub / LinkedIn / email links with your own -->
           <div class="hero__socials reveal" style="--d:.3s">
-            <a href="https://github.com/your-username" target="_blank" rel="noopener" aria-label="GitHub"><svg class="i"><use href="#i-github"/></svg></a>
-            <a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="i"><use href="#i-linkedin"/></svg></a>
-            <a href="mailto:your.email@example.com" aria-label="Email"><svg class="i"><use href="#i-mail"/></svg></a>
+            <a href="https://github.com/mansi-boghra" target="_blank" rel="noopener" aria-label="GitHub"><svg class="i"><use href="#i-github"/></svg></a>
+            <a href="https://www.linkedin.com/in/mansi-boghra-b27353236" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="i"><use href="#i-linkedin"/></svg></a>
+            <a href="mailto:mansiboghra11@gmail.com" aria-label="Email"><svg class="i"><use href="#i-mail"/></svg></a>
             <span class="hero__socials-line"></span>
             <span class="hero__location"><svg class="i"><use href="#i-pin"/></svg> India</span>
           </div>
@@ -186,57 +189,57 @@
     <section class="section" id="about">
       <div class="container">
         <div class="section-head section-head--center reveal">
-          <span class="eyebrow">01 — About me</span>
-          <h2>Backend engineer at heart.<br /><span class="gradient-text">AI builder</span> by passion.</h2>
+          <span class="eyebrow">01 - About me</span>
+          <h2>Backend engineer at heart. <span class="gradient-text">AI builder</span> by passion.</h2>
         </div>
 
         <div class="about">
-        <div class="about__text">
-          <p class="reveal">
-            I'm a Python developer with <strong>4+ years of hands-on experience</strong> building scalable
-            backend systems, RESTful APIs and database-driven applications — and, more recently,
-            production-grade <strong>Generative AI</strong> products.
-          </p>
-          <p class="reveal">
-            My work spans the full backend lifecycle: modelling data in PostgreSQL and MongoDB, designing
-            clean APIs with Django REST Framework and FastAPI, running background jobs with Celery &amp; Redis,
-            pushing real-time updates over WebSockets, and deploying to AWS and DigitalOcean behind Nginx and Gunicorn.
-          </p>
-          <p class="reveal">
-            On the AI side, I turn LLMs into reliable product features — <strong>RAG pipelines, agents and chatbots</strong>
-            built with LangChain, CrewAI, OpenAI and Google Gemini — for use cases ranging from legal research and
-            document intelligence to personalised meal and workout planning.
-          </p>
-          <p class="reveal">
-            I work closely with cross-functional teams, care about clean architecture and performance, and
-            consistently ship high-quality solutions on deadline.
-          </p>
-        </div>
+          <div class="about__text">
+            <p class="reveal">
+              I'm a Python developer with <strong>4+ years of hands-on experience</strong> building scalable
+              backend systems, RESTful APIs and database-driven applications and, more recently,
+              production-grade <strong>Generative AI</strong> products.
+            </p>
+            <p class="reveal">
+              My work spans the full backend lifecycle: modelling data in PostgreSQL and MongoDB, designing
+              clean APIs with Django REST Framework and FastAPI, running background jobs with Celery &amp; Redis,
+              pushing real-time updates over WebSockets, and deploying to AWS and DigitalOcean behind Nginx and Gunicorn.
+            </p>
+            <p class="reveal">
+              On the AI side, I turn LLMs into reliable product features <strong>RAG pipelines, agents and chatbots</strong>
+              built with LangChain, CrewAI, OpenAI and Google Gemini for use cases ranging from legal research and
+              document intelligence to personalised meal and workout planning.
+            </p>
+            <p class="reveal">
+              I work closely with cross-functional teams, care about clean architecture and performance, and
+              consistently ship high-quality solutions on deadline.
+            </p>
+          </div>
 
-        <aside class="card facts reveal" style="--d:.1s" aria-label="At a glance">
-          <p class="facts__title">At a glance</p>
-          <dl class="facts__list">
-            <div><dt>Role</dt><dd>Python &amp; AI Engineer</dd></div>
-            <div><dt>Experience</dt><dd>4+ years</dd></div>
-            <div><dt>Currently at</dt><dd>ITCode Infotech</dd></div>
-            <div><dt>Focus</dt><dd>AI &amp; Backend</dd></div>
-            <div><dt>Core stack</dt><dd>Python · FastAPI · Django</dd></div>
-            <div><dt>Education</dt><dd>MCA, Jain University</dd></div>
-            <div><dt>Location</dt><dd>India</dd></div>
-            <div><dt>Status</dt><dd class="facts__status"><span class="pulse"></span>Open to opportunities</dd></div>
-          </dl>
-          <a href="#services" class="facts__link">See what I can do for you <svg class="i"><use href="#i-arrow"/></svg></a>
-        </aside>
-      </div>
+          <aside class="card facts reveal" style="--d:.1s" aria-label="At a glance">
+            <p class="facts__title">At a glance</p>
+            <dl class="facts__list">
+              <div><dt>Role</dt><dd>Python &amp; AI Engineer</dd></div>
+              <div><dt>Experience</dt><dd>4+ years</dd></div>
+              <div><dt>Currently at</dt><dd>ITCode Infotech</dd></div>
+              <div><dt>Focus</dt><dd>AI &amp; Backend</dd></div>
+              <div><dt>Core stack</dt><dd>Python · FastAPI · Django</dd></div>
+              <div><dt>Education</dt><dd>MCA, Jain University</dd></div>
+              <div><dt>Location</dt><dd>India</dd></div>
+              <div><dt>Status</dt><dd class="facts__status"><span class="pulse"></span>Open to opportunities</dd></div>
+            </dl>
+            <a href="#services" class="facts__link">See what I can do for you <svg class="i"><use href="#i-arrow"/></svg></a>
+          </aside>
+        </div>
     </section>
 
     <!-- ============ SERVICES ============ -->
     <section class="section" id="services">
       <div class="container">
         <div class="section-head section-head--center reveal">
-          <span class="eyebrow">02 — Services</span>
+          <span class="eyebrow">02 - Services</span>
           <h2>What I can do for you</h2>
-          <p class="section-sub">From an AI feature in your existing app to a complete backend built from scratch — designed, built and deployed to production.</p>
+          <p class="section-sub">From an AI feature in your existing app to a complete backend built from scratch designed, built and deployed to production.</p>
         </div>
 
         <div class="offers">
@@ -247,7 +250,7 @@
               <span class="offer__num">01</span>
             </div>
             <h3>Generative AI Integration</h3>
-            <p class="offer__desc">Bring LLMs into your product as reliable, production-ready features — not just demos.</p>
+            <p class="offer__desc">Bring LLMs into your product as reliable, production-ready features not just demos.</p>
             <ul class="offer__list">
               <li><svg class="i"><use href="#i-check"/></svg>Content generation, summarisation &amp; data extraction</li>
               <li><svg class="i"><use href="#i-check"/></svg>Prompt engineering &amp; few-shot tuning for accurate output</li>
@@ -282,7 +285,7 @@
             <p class="offer__desc">Conversational assistants and multi-agent workflows that automate real business tasks.</p>
             <ul class="offer__list">
               <li><svg class="i"><use href="#i-check"/></svg>Multi-agent workflows with CrewAI &amp; LangChain</li>
-              <li><svg class="i"><use href="#i-check"/></svg>Domain assistants — legal research, health, support</li>
+              <li><svg class="i"><use href="#i-check"/></svg>Domain assistants - legal research, health, support</li>
               <li><svg class="i"><use href="#i-check"/></svg>Chatbots served through FastAPI into your app</li>
             </ul>
             <p class="offer__stack">CrewAI · LangChain · FastAPI</p>
@@ -295,7 +298,7 @@
               <span class="offer__num">04</span>
             </div>
             <h3>Backend &amp; API Development</h3>
-            <p class="offer__desc">Secure, scalable backends for web and mobile apps — from database schema to clean REST APIs.</p>
+            <p class="offer__desc">Secure, scalable backends for web and mobile apps from database schema to clean REST APIs.</p>
             <ul class="offer__list">
               <li><svg class="i"><use href="#i-check"/></svg>REST APIs with Django REST Framework &amp; FastAPI</li>
               <li><svg class="i"><use href="#i-check"/></svg>Authentication, OAuth &amp; role-based access control</li>
@@ -352,7 +355,7 @@
     <section class="section" id="skills">
       <div class="container">
         <div class="section-head section-head--center reveal">
-          <span class="eyebrow">03 — Skills</span>
+          <span class="eyebrow">03 - Skills</span>
           <h2>Technical expertise</h2>
           <p class="section-sub">The stack I use to take products from database schema to production deployment.</p>
         </div>
@@ -366,7 +369,7 @@
                 <span class="skill__tag">Primary focus</span>
               </div>
             </div>
-            <p class="skill__desc">Designing and shipping LLM features end-to-end — retrieval pipelines, agents and chatbots — on OpenAI, Google Gemini and Vertex AI.</p>
+            <p class="skill__desc">Designing and shipping LLM features end-to-end retrieval pipelines, agents and chatbots on OpenAI, Google Gemini and Vertex AI.</p>
             <ul class="chips">
               <li class="chip chip--hl">LangChain</li><li class="chip chip--hl">CrewAI</li><li class="chip chip--hl">RAG Pipelines</li><li class="chip">Agentic RAG</li><li class="chip">OpenAI API</li><li class="chip">Google Gemini</li><li class="chip">Vertex AI</li><li class="chip">Replicate</li><li class="chip">Google Document AI</li><li class="chip">Few-shot Prompting</li>
             </ul>
@@ -389,7 +392,9 @@
           <article class="card skill reveal">
             <div class="skill__head">
               <span class="icon-box icon-box--green"><svg class="i"><use href="#i-database"/></svg></span>
-              <h3>Databases &amp; Search</h3>
+              <div>
+                <h3>Databases &amp; Search</h3>
+              </div>
             </div>
             <p class="skill__desc">Schema design, ORM query optimisation and fast full-text search.</p>
             <ul class="chips">
@@ -400,7 +405,9 @@
           <article class="card skill reveal" style="--d:.08s">
             <div class="skill__head">
               <span class="icon-box icon-box--amber"><svg class="i"><use href="#i-zap"/></svg></span>
-              <h3>Async &amp; Real-time</h3>
+              <div>
+                <h3>Async &amp; Real-time</h3>
+              </div>
             </div>
             <p class="skill__desc">Background processing, live chat and event-driven push notifications.</p>
             <ul class="chips">
@@ -411,7 +418,9 @@
           <article class="card skill reveal" style="--d:.16s">
             <div class="skill__head">
               <span class="icon-box icon-box--pink"><svg class="i"><use href="#i-shield"/></svg></span>
-              <h3>APIs &amp; Security</h3>
+              <div>
+                <h3>APIs &amp; Security</h3>
+              </div>
             </div>
             <p class="skill__desc">Secure, role-based APIs with OAuth and third-party payment integrations.</p>
             <ul class="chips">
@@ -422,7 +431,9 @@
           <article class="card skill reveal">
             <div class="skill__head">
               <span class="icon-box icon-box--blue"><svg class="i"><use href="#i-cloud"/></svg></span>
-              <h3>Cloud &amp; DevOps</h3>
+              <div>
+                <h3>Cloud &amp; DevOps</h3>
+              </div>
             </div>
             <p class="skill__desc">Deploying and serving production apps across multiple cloud providers.</p>
             <ul class="chips">
@@ -433,9 +444,11 @@
           <article class="card skill skill--wide reveal" style="--d:.08s">
             <div class="skill__head">
               <span class="icon-box"><svg class="i"><use href="#i-layers"/></svg></span>
-              <h3>Engineering Strengths</h3>
+              <div>
+                <h3>Engineering Strengths</h3>
+              </div>
             </div>
-            <p class="skill__desc">How I approach delivery — beyond the tools.</p>
+            <p class="skill__desc">How I approach delivery beyond the tools.</p>
             <ul class="chips">
               <li class="chip">Scalable Architecture</li><li class="chip">Query &amp; Performance Optimisation</li><li class="chip">Third-party Integrations</li><li class="chip">Multi-role Systems</li><li class="chip">Cross-functional Collaboration</li><li class="chip">On-time Delivery</li>
             </ul>
@@ -448,7 +461,7 @@
     <section class="section" id="experience">
       <div class="container">
         <div class="section-head section-head--center reveal">
-          <span class="eyebrow">04 — Experience</span>
+          <span class="eyebrow">04 - Experience</span>
           <h2>Where I've built things</h2>
         </div>
 
@@ -462,7 +475,7 @@
                   <h3 class="job__company">ITCode Infotech <span class="pill pill--live">Current</span></h3>
                   <p class="job__role">Python AI Engineer</p>
                 </div>
-                <span class="job__date">Jun 2026 — Present</span>
+                <span class="job__date">Jun 2026 - Present</span>
               </header>
               <ul class="job__list">
                 <li>Building scalable backend systems and AI-driven applications using Python, FastAPI, Django and Generative AI.</li>
@@ -482,7 +495,7 @@
                   <h3 class="job__company">Kmphitech LLP</h3>
                   <p class="job__role">Python AI Developer</p>
                 </div>
-                <span class="job__date">Jul 2025 — May 2026</span>
+                <span class="job__date">Jul 2025 - May 2026</span>
               </header>
               <ul class="job__list">
                 <li>Built backend systems and APIs with FastAPI and Django for AI-driven applications.</li>
@@ -505,7 +518,7 @@
                   <h3 class="job__company">Grewon Technologies Pvt. Ltd</h3>
                   <p class="job__role">Senior Developer - Python / Django</p>
                 </div>
-                <span class="job__date">Sep 2022 — May 2025</span>
+                <span class="job__date">Sep 2022 - May 2025</span>
               </header>
               <ul class="job__list">
                 <li>Designed and developed scalable Django web &amp; mobile backends with RESTful APIs; optimised database queries and application performance with the Django ORM.</li>
@@ -526,7 +539,7 @@
     <section class="section" id="projects">
       <div class="container">
         <div class="section-head section-head--center reveal">
-          <span class="eyebrow">05 — Featured work</span>
+          <span class="eyebrow">05 - Featured work</span>
           <h2>Featured Projects</h2>
           <p class="section-sub">A selection of the production systems I've designed and built.</p>
         </div>
@@ -590,7 +603,7 @@
             </header>
             <div class="project__main">
               <p class="project__desc">
-                Built the AI layer with FastAPI — a GenAI engine that generates <strong>personalised meal and workout
+                Built the AI layer with FastAPI and a GenAI engine that generates <strong>personalised meal and workout
                 plans</strong>, plus a conversational assistant for health and fitness questions.
               </p>
               <ul class="project__points">
@@ -639,7 +652,7 @@
             <div class="project__main">
               <p class="project__desc">
                 An e-commerce platform connecting suppliers and clinics, with dedicated workflows for clinics,
-                suppliers and admins — improving product management, stock control and user experience.
+                suppliers and admins improving product management, stock control and user experience.
               </p>
               <ul class="project__points">
                 <li><svg class="i"><use href="#i-check"/></svg>Bulk product upload via Excel and XML for suppliers</li>
@@ -701,12 +714,12 @@
           </article>
         </div>
 
-        <div class="more reveal">
+        <!-- <div class="more reveal">
           <p class="more__title">Also shipped to production</p>
           <ul class="chips">
             <li class="chip">Imposter</li><li class="chip">Pocket-Handyman</li><li class="chip">PremiumCrap</li><li class="chip">Batchly</li><li class="chip">Nomly</li><li class="chip">HRMS</li><li class="chip">Dottore</li><li class="chip">PBSM</li><li class="chip">Stockel</li><li class="chip">Sumoti</li><li class="chip">Gex Chart</li><li class="chip">CallerID</li><li class="chip">LovigNite</li>
           </ul>
-        </div>
+        </div> -->
       </div>
     </section>
 
@@ -714,14 +727,14 @@
     <section class="section" id="education">
       <div class="container">
         <div class="section-head section-head--center reveal">
-          <span class="eyebrow">06 — Education</span>
+          <span class="eyebrow">06 - Education</span>
           <h2>Academic foundation</h2>
         </div>
         <div class="edu">
           <article class="card edu__item reveal">
             <span class="icon-box"><svg class="i"><use href="#i-cap"/></svg></span>
             <div>
-              <span class="edu__years">2022 — 2024</span>
+              <span class="edu__years">2022 - 2024</span>
               <h3>Master of Computer Applications</h3>
               <p>Jain University</p>
             </div>
@@ -729,7 +742,7 @@
           <article class="card edu__item reveal" style="--d:.08s">
             <span class="icon-box icon-box--cyan"><svg class="i"><use href="#i-cap"/></svg></span>
             <div>
-              <span class="edu__years">2019 — 2022</span>
+              <span class="edu__years">2019 - 2022</span>
               <h3>Bachelor of Computer Applications</h3>
               <p>Shree Uttar Gujarat B.B.A &amp; B.C.A College</p>
             </div>
@@ -742,59 +755,43 @@
     <section class="section" id="contact">
       <div class="container">
         <div class="section-head section-head--center reveal">
-          <span class="eyebrow">07 — Contact</span>
+          <span class="eyebrow">07 - Contact</span>
           <h2>Have an idea? <span class="gradient-text">Let's build it.</span></h2>
-          <p class="section-sub">
-            Whether it's a scalable backend, an AI-powered feature or a full GenAI product, I'd love to hear about it.
-          </p>
+          <p class="section-sub">Whether it's a scalable backend, an AI-powered feature or a full GenAI product, I'd love to hear about it.</p>
         </div>
 
-        <div class="contact reveal">
-          <div class="contact__info">
-            <h3 class="contact__title">Reach me directly</h3>
-            <p class="contact__lead">Prefer email or LinkedIn? Pick whichever works best for you, or send a message using the form.</p>
-
-            <!-- EDIT: replace with your real contact details -->
-            <ul class="contact__list">
-              <li>
-                <a href="mailto:your.email@example.com">
-                  <span class="icon-box icon-box--sm"><svg class="i"><use href="#i-mail"/></svg></span>
-                  <span><small>Email</small>your.email@example.com</span>
-                </a>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener">
-                  <span class="icon-box icon-box--sm icon-box--blue"><svg class="i"><use href="#i-linkedin"/></svg></span>
-                  <span><small>LinkedIn</small>linkedin.com/in/your-profile</span>
-                </a>
-              </li>
-              <li>
-                <a href="https://github.com/your-username" target="_blank" rel="noopener">
-                  <span class="icon-box icon-box--sm icon-box--green"><svg class="i"><use href="#i-github"/></svg></span>
-                  <span><small>GitHub</small>github.com/your-username</span>
-                </a>
-              </li>
-            </ul>
+        <div class="contact contact--simple reveal">
+          <div class="contact__intro">
+            <p class="contact__kicker">Prefer email</p>
+            <h3 class="contact__title">Say hello</h3>
+            <p class="contact__lead">Open to freelance, contract and full-time opportunities. Feel free to contact me for any collaborations.</p>
           </div>
 
-          <form class="contact__form" id="contactForm" data-email="your.email@example.com" novalidate>
-            <div class="field">
-              <label for="cf-name">Your name</label>
-              <input id="cf-name" name="name" type="text" placeholder="Jane Doe" autocomplete="name" required />
-            </div>
-            <div class="field">
-              <label for="cf-email">Email</label>
-              <input id="cf-email" name="email" type="email" placeholder="jane@company.com" autocomplete="email" required />
-            </div>
-            <div class="field">
-              <label for="cf-msg">Project details</label>
-              <textarea id="cf-msg" name="message" rows="5" placeholder="Tell me about your project, timeline and goals…" required></textarea>
-            </div>
-            <button type="submit" class="btn btn--primary btn--block">
-              Send message <svg class="i"><use href="#i-send"/></svg>
-            </button>
-            <p class="form-note" id="formNote" role="status"></p>
-          </form>
+          <div class="contact__channels">
+            <!-- EDIT: replace with your real email / profiles -->
+            <a class="contact__channel contact__channel--primary" href="mailto:your.email@example.com">
+              <span class="icon-box"><svg class="i"><use href="#i-mail"/></svg></span>
+              <span class="contact__channel-text">
+                <small>Email</small>
+                mansiboghra11@gmail.com
+              </span>
+              <svg class="i contact__channel-arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+            <a class="contact__channel" href="https://www.linkedin.com/in/mansi-boghra-b27353236" target="_blank" rel="noopener">
+              <span class="icon-box icon-box--blue"><svg class="i"><use href="#i-linkedin"/></svg></span>
+              <span class="contact__channel-text">
+                <small>LinkedIn</small>
+                https://www.linkedin.com/in/mansi-boghra-b27353236
+              </span>
+            </a>
+            <a class="contact__channel" href="https://github.com/mansi-boghra" target="_blank" rel="noopener">
+              <span class="icon-box icon-box--green"><svg class="i"><use href="#i-github"/></svg></span>
+              <span class="contact__channel-text">
+                <small>GitHub</small>
+                https://github.com/mansi-boghra
+              </span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -803,11 +800,12 @@
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
     <div class="container footer__inner">
-      <p>© <span id="year">2026</span> Mansi Boghra · Python &amp; AI Engineer</p>
+      <p>© <span id="year"></span> Mansi Boghra · Python &amp; AI Engineer</p>
+      <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
       <a href="#top" class="footer__top">Back to top <svg class="i"><use href="#i-arrow-up-right"/></svg></a>
     </div>
   </footer>
 
-  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/main.js?v=ui6" defer></script>
 </body>
 </html>

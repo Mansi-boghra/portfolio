@@ -212,46 +212,101 @@
     });
   }
 
-  /* ---------- Contact form → opens the visitor's email client ---------- */
-  const form = document.getElementById('contactForm');
-  const note = document.getElementById('formNote');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const fields = {
-        name: form.elements.name,
-        email: form.elements.email,
-        message: form.elements.message,
-      };
-      let valid = true;
-      Object.values(fields).forEach((input) => {
-        const ok = input.value.trim() !== '' && input.checkValidity();
-        input.closest('.field').classList.toggle('has-error', !ok);
-        if (!ok) valid = false;
-      });
-
-      if (!valid) {
-        note.textContent = 'Please fill in all fields with a valid email.';
-        note.className = 'form-note is-error';
-        return;
-      }
-
-      const to = form.dataset.email;
-      const subject = `Project enquiry from ${fields.name.value.trim()}`;
-      const body = `${fields.message.value.trim()}\n\n— ${fields.name.value.trim()}\n${fields.email.value.trim()}`;
-      window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-      note.textContent = 'Opening your email app… thanks for reaching out!';
-      note.className = 'form-note is-ok';
-      form.reset();
-    });
-
-    form.querySelectorAll('input, textarea').forEach((input) => {
-      input.addEventListener('input', () => input.closest('.field').classList.remove('has-error'));
-    });
-  }
-
   /* ---------- Footer year ---------- */
   const year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
+
+  /* ---------- Floating arrow agents ---------- */
+  const canvas = document.getElementById('agentsCanvas');
+  if (!canvas || reduceMotion) return;
+
+  const ctx = canvas.getContext('2d');
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  const palette = ['#8b5cf6', '#22d3ee', '#34d399', '#fbbf24', '#f472b6', '#60a5fa', '#a78bfa', '#fb7185'];
+  let w = 0;
+  let h = 0;
+  const mouse = { x: -9999, y: -9999 };
+  const COUNT = window.matchMedia('(max-width: 820px)').matches ? 10 : 18;
+
+  const resize = () => {
+    w = window.innerWidth;
+    h = window.innerHeight;
+    canvas.width = Math.floor(w * dpr);
+    canvas.height = Math.floor(h * dpr);
+    canvas.style.width = `${w}px`;
+    canvas.style.height = `${h}px`;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  };
+  resize();
+  window.addEventListener('resize', resize);
+  window.addEventListener('pointermove', (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  }, { passive: true });
+  window.addEventListener('pointerleave', () => {
+    mouse.x = -9999;
+    mouse.y = -9999;
+  });
+
+  const agents = Array.from({ length: COUNT }, (_, i) => {
+    const angle = Math.random() * Math.PI * 2;
+    return {
+      x: Math.random() * w,
+      y: Math.random() * h,
+      vx: Math.cos(angle) * (0.25 + Math.random() * 0.55),
+      vy: Math.sin(angle) * (0.25 + Math.random() * 0.55),
+      color: palette[i % palette.length],
+      size: 7 + Math.random() * 5,
+      wander: Math.random() * Math.PI * 2,
+      lag: 0.012 + Math.random() * 0.03,
+    };
+  });
+
+  const drawCursor = (a) => {
+    const ang = Math.atan2(a.vy, a.vx);
+    ctx.save();
+    ctx.translate(a.x, a.y);
+    ctx.rotate(ang + Math.PI / 2);
+    ctx.beginPath();
+    ctx.moveTo(0, -a.size);
+    ctx.lineTo(a.size * 0.62, a.size * 0.78);
+    ctx.lineTo(0, a.size * 0.38);
+    ctx.lineTo(-a.size * 0.62, a.size * 0.78);
+    ctx.closePath();
+    ctx.fillStyle = a.color;
+    ctx.globalAlpha = 0.55;
+    ctx.shadowColor = a.color;
+    ctx.shadowBlur = 8;
+    ctx.fill();
+    ctx.restore();
+  };
+
+  const step = () => {
+    ctx.clearRect(0, 0, w, h);
+    const attracted = mouse.x > 0 && mouse.y > 0;
+    for (const a of agents) {
+      a.wander += 0.01 + Math.random() * 0.02;
+      a.vx += Math.cos(a.wander) * 0.02;
+      a.vy += Math.sin(a.wander) * 0.02;
+      if (attracted) {
+        a.vx += (mouse.x - a.x) * a.lag * 0.08;
+        a.vy += (mouse.y - a.y) * a.lag * 0.08;
+      }
+      const speed = Math.hypot(a.vx, a.vy) || 1;
+      const max = 1.8;
+      if (speed > max) {
+        a.vx = (a.vx / speed) * max;
+        a.vy = (a.vy / speed) * max;
+      }
+      a.x += a.vx;
+      a.y += a.vy;
+      if (a.x < -20) a.x = w + 20;
+      if (a.x > w + 20) a.x = -20;
+      if (a.y < -20) a.y = h + 20;
+      if (a.y > h + 20) a.y = -20;
+      drawCursor(a);
+    }
+    requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
 })();
